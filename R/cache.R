@@ -15,15 +15,10 @@ const getCachePage as function(link, .cache = "./cache") {
         w       = link$cache$uid
     );
     const url as string = `http://cncc.bingj.com/cache.aspx?${urlencode(argv)}`;
-    const query = system.file("graphquery/bing_cache.graphquery", package = "MicrosoftBing") 
-    |> readText()
-    |> graphquery::parseQuery()
-    ;
 
-    REnv::getHtml(url)
-    |> Html::parse()
-    |> query(
-        graphquery = query
-    );
-    ;
+    if (getOption("debug")) {
+        print(`Bing Cache: ${url}`);
+    }
+
+    REnv::getHtml(url);
 }

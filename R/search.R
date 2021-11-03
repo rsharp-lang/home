@@ -26,10 +26,10 @@ const search as function(term, page = 1, .cache = "./.cache/") {
     );
 
     list(
-        bing_url = url,
-        page_num = page,
-        term     = urlencode(term),
-        output   = output
+        bing_url  = url,
+        page_num  = page,
+        term      = urlencode(term),
+        b_results = output
     );
 }
 
