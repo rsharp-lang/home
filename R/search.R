@@ -16,7 +16,7 @@ const search as function(term, page = 1, .cache = "./.cache/") {
 
     const url as string = .bingUrl(term, page);
     const html  = REnv::getHtml(url) |> Html::parse();
-    const query = system.file("graphquery/bing_en.graphquery", package = "") 
+    const query = system.file("graphquery/bing_en.graphquery", package = "MicrosoftBing") 
     |> readText()
     |> graphquery::parseQuery()
     ;
