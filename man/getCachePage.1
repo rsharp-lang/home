@@ -1,8 +1,8 @@
 ﻿.TH GETCACHEPAGE 1 2021-11-03 "" "Get bing cached page"
 .SH NAME
-getCachePage \- getCachePage(link)
+getCachePage \- getCachePage(link, .cache = ./cache)
 .SH SYNOPSIS
-\fIgetCachePage(link)\fR
+\fIgetCachePage(link, .cache = ./cache)\fR
 .SH DESCRIPTION
 .PP
 get cached page from bing server.
@@ -11,9 +11,16 @@ get cached page from bing server.
 .PP
 \fBlink\fB \fR\- . one result item from the bing search result list.
 .PP
+.PP
+\fB.cache\fB \fR\- ./cache. 
+.PP
+.SH VALUE
+.PP
+this function will returns the page content html document text.
+.PP
 .SH FILES
 .PP
-SMRUCC/R#.declare_function.getCachePage at cache.R:line 7
+SMRUCC/R#.declare_function.getCachePage at cache.R:line 10
 .PP
 .SH COPYRIGHT
 Copyright © xieguigang, MIT Licensed 2021
