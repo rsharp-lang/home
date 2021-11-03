@@ -28,8 +28,8 @@ const search as function(term, page = 1, .cache = "./.cache/") {
 }
 
 const .bingUrl as function(term, page) {
-    const cvid as string = toupper(md5(runif()));
-    const hash as string = mid(toupper(md5(runif())), 1, 6);
+    const cvid as string = toupper(md5(term));
+    const hash as string = mid(toupper(md5(`${term}+${page}`)), 1, 6);
     const urlcomponent as string = list(
         q        = term,
         qs       = "HS",
@@ -38,9 +38,13 @@ const .bingUrl as function(term, page) {
         FORM     = hash,
         sp       = 1,
         ensearch = 1,
-        first    = page * 10
+        first    = 1 + (page - 1) * 10
     ) |> urlencode()
     ;
+
+    if (getOption("debug")) {
+        print(`Search Bing: https://cn.bing.com/search?${urlcomponent}`);
+    }
 
     `https://cn.bing.com/search?${urlcomponent}`;
 }
