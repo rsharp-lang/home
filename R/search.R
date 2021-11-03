@@ -43,7 +43,7 @@ const .bingUrl as function(term, page) {
     ) |> urlencode()
     ;
 
-    if (getOption("debug")) {
+    if (getOption("debug", default = FALSE)) {
         print(`Search Bing: https://cn.bing.com/search?${urlcomponent}`);
     }
 

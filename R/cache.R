@@ -16,7 +16,7 @@ const getCachePage as function(link, .cache = "./cache") {
     );
     const url as string = `http://cncc.bingj.com/cache.aspx?${urlencode(argv)}`;
 
-    if (getOption("debug")) {
+    if (getOption("debug", default = FALSE)) {
         print(`Bing Cache: ${url}`);
     }
 
