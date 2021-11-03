@@ -31,13 +31,8 @@ const .bingUrl as function(term, page) {
     const cvid as string = toupper(md5(term));
     const hash as string = mid(toupper(md5(`${term}+${page}`)), 1, 6);
     const urlcomponent as string = list(
-        q        = term,
-        qs       = "HS",
-        sc       = "8-5",
-        cvid     = cvid,
-        FORM     = hash,
-        sp       = 1,
-        ensearch = 1,
+        q        = term,        
+        ensearch = 0,
         first    = 1 + (page - 1) * 10
     ) |> urlencode()
     ;
