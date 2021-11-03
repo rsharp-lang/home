@@ -21,7 +21,7 @@ const search as function(term, page = 1, .cache = "./.cache/") {
     |> graphquery::parseQuery()
     ;
     const output = html 
-    |> query(
+    |> graphquery::query(
         graphquery = query
     );
 
