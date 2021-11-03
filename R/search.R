@@ -20,10 +20,16 @@ const search as function(term, page = 1, .cache = "./.cache/") {
     |> readText()
     |> graphquery::parseQuery()
     ;
-
-    html 
+    const output = html 
     |> query(
         graphquery = query
+    );
+
+    list(
+        bing_url = url,
+        page_num = page,
+        term     = urlencode(term),
+        output   = output
     );
 }
 
