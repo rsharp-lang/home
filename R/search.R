@@ -12,12 +12,10 @@ imports ["graphquery", "Html"] from "webKit";
 #'   + title: the title of the target page
 #' 
 const search as function(term, page = 1, .cache = "./.cache/") {
+    options(http.cache_dir = .cache); 
+
     const url as string = .bingUrl(term, page);
-    const html = {
-        options(http.cache_dir = .cache); 
-        REnv::getHtml(url); 
-    } |> Html::parse()
-    ;
+    const html  = REnv::getHtml(url) |> Html::parse();
     const query = system.file("graphquery/bing_en.graphquery", package = "") 
     |> readText()
     |> graphquery::parseQuery()
