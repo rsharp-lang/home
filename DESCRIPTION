@@ -1,0 +1,10 @@
+Package: MicrosoftBing
+Type: Package
+Title: Microsoft Bing Search
+Version: 1.0.0.1254
+Date: 2021-01-25
+Author: xieguigang
+Maintainer: xieguigang <I@xieguigang.me>
+Description: Microsoft Bing Search Toolkit for R# programming language.
+License: MIT
+RoxygenNote: 7.1.1
