@@ -1,4 +1,4 @@
-
+imports ["graphquery", "Html"] from "webKit";
 
 #' Run bing search
 #' 
@@ -12,12 +12,21 @@
 #'   + title: the title of the target page
 #' 
 const search as function(term, page = 1, .cache = "./.cache/") {
-    const url as string  = .bingUrl(term, page);
-    const html as string = REnv::getHtml(url);
+    const url as string = .bingUrl(term, page);
+    const html = {
+        options(http.cache_dir = .cache); 
+        REnv::getHtml(url); 
+    } |> Html::parse()
+    ;
     const query = system.file("graphquery/bing_en.graphquery", package = "") 
     |> readText()
     |> graphquery::parseQuery()
     ;
+
+    html 
+    |> query(
+        graphquery = query
+    );
 }
 
 const .bingUrl as function(term, page) {
@@ -32,7 +41,8 @@ const .bingUrl as function(term, page) {
         sp       = 1,
         ensearch = 1,
         first    = page * 10
-    ) |> urlencode();
+    ) |> urlencode()
+    ;
 
     `https://cn.bing.com/search?${urlcomponent}`;
 }
