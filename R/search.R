@@ -11,10 +11,10 @@ imports ["graphquery", "Html"] from "webKit";
 #'   + url: the result page url
 #'   + title: the title of the target page
 #' 
-const search as function(term, page = 1, .cache = "./.cache/") {
+const search as function(term, page = 1, language = "en", .cache = "./.cache/") {
     options(http.cache_dir = .cache); 
 
-    const url as string = .bingUrl(term, page);
+    const url as string = .bingUrl(`${term} language:${language}`, page);
     const html  = REnv::getHtml(url) |> Html::parse();
     const query = system.file("graphquery/bing_en.graphquery", package = "MicrosoftBing") 
     |> readText()
@@ -27,9 +27,10 @@ const search as function(term, page = 1, .cache = "./.cache/") {
 
     list(
         bing_url  = url,
+        language  = language,
         page_num  = page,
         term      = urlencode(term),
-        b_results = output
+        b_results = output        
     );
 }
 
