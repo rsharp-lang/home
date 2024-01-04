@@ -69,6 +69,20 @@
                         href="https://www.r-project.org/">R</a> liked vectorized language
                      implements on .NET clr environment for the bioinformatics data analysis.</p>
                   <a class="read_more" href="get-starts.html">Get Starts</a>
+
+                  <p>
+                  <pre>
+<code id="hello_r">
+#' print hello world
+const hello = function(word) {
+   print(`hello ${word}!`);
+}
+
+hello(["world", "R# language"]);
+# [1]     "hello world!"       "hello R# language!"
+</code>
+                     </pre>
+                  </p>
                </div>
             </div>
             <div class="col-md-7">
@@ -189,6 +203,11 @@
    <script src="assets/js/bootstrap.bundle.min.js"></script>
    <script src="assets/js/jquery-3.0.0.min.js"></script>
    <script src="assets/js/custom.js"></script>
+
+   <script src="assets/js/R_syntax.js"></script>
+   <script src="assets/js/highlights.js"></script>
+
+   <script type="text/javascript"> r_highlights("hello_r"); </script>
 </body>
 
 </html>
