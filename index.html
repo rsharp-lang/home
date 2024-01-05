@@ -57,7 +57,7 @@
    <div class=" banner_main">
       <div class="container-fluid">
          <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
                <div class="bluid">
                   <h1><span class="rsharp_name" style="font-size: 160px;">R#</span>
                      <br><span class="black">Programming Language</span>
@@ -83,8 +83,8 @@ hello(["world", "R# language"]);
                   </p>
                </div>
             </div>
-            <div class="col-md-7">
-               <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="col-md-8">
+               <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-left: 100px;">
                   <ol class="carousel-indicators">
                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                      <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -103,9 +103,14 @@ hello(["world", "R# language"]);
                      <div class="carousel-item">
                         <div class="container">
                            <div class="carousel-caption relative">
-                              <div class="banner_img">
+                              <div class="banner_img" style="background-color: transparent;
+                                 filter: blur(4px);
+                                 -webkit-filter: blur(4px);
+                                 background-image: url(assets/images/HR2MSI_mouse_urinary_bladder_S096_RGB.png);
+                                 background-repeat: no-repeat;">
                                  <figure>
-                                    <pre>
+
+                                    <pre style="text-align: left; z-index: 999;background-color: transparent;">
 <code id="msi_demo_r">
 require(MSImaging);
 require(mzkit);
@@ -135,8 +140,9 @@ bitmap(file = "./HR2MSI_mouse_urinary_bladder_S096_RGB.png", size = [3300, 2000]
       + scale_y_continuous(labels = "F0")
    ;
 }         
-        </code></pre>                            
-                                    <img src="assets/images/slider.png" alt="#" /></figure>
+        </code></pre>
+
+                                 </figure>
                               </div>
                            </div>
                         </div>
@@ -241,7 +247,10 @@ bitmap(file = "./HR2MSI_mouse_urinary_bladder_S096_RGB.png", size = [3300, 2000]
    <script src="assets/js/R_syntax.js"></script>
    <script src="assets/js/highlights.js"></script>
 
-   <script type="text/javascript"> r_highlights("hello_r"); </script>
+   <script type="text/javascript">
+      r_highlights("hello_r");
+      r_highlights("msi_demo_r");
+   </script>
 </body>
 
 </html>
