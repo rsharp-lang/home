@@ -9,10 +9,10 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>birdor</title>
-   <meta name="keywords" content="">
-   <meta name="description" content="">
-   <meta name="author" content="">
+   <title>R# programming language</title>
+   <meta name="keywords" content="R-sharp">
+   <meta name="description" content="R-sharp programming language">
+   <meta name="author" content="xieguigang">
    <!-- bootstrap css -->
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
    <!-- style css -->
@@ -21,6 +21,8 @@
    <link rel="stylesheet" href="assets/css/responsive.css">
    <!-- awesome fontfamily -->
    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+   <link rel="stylesheet" href="assets/css/page.css">
    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -37,13 +39,13 @@
             <div class="row">
                <div class="col-sm-3">
                   <div class="logo">
-                     <a href="/"><img src="assets/images/logo.png" class="logo-icon" /></a>
+                     <!-- <a href="/"><img src="assets/images/logo.png" class="logo-icon" /></a> -->
                   </div>
                </div>
                <div class="col-sm-9">
                   <ul class="email text_align_right">
                      <li class="d_none"><i class="fa fa-search" style="cursor: pointer;" aria-hidden="true"></i></li>
-                     <li class="d_none"> <a href="Javascript:void(0)">Join us</a> </li>
+                     <li class="d_none"> <a href="https://rdocumentation.rsharp.net/">R Documentation</a> </li>
                   </ul>
                </div>
             </div>
@@ -59,9 +61,28 @@
                <div class="bluid">
                   <h1><span class="rsharp_name"
                         style="font-size: 160px;">R#</span>
-                     <br><span class="black">Programming Language</span></h1>
-                  <p>Welcome<br> Your Online Guide To Birds And Bird Watching</p>
-                  <a class="read_more" href="birds.html">our birds </a>
+                     <br><span class="black">Programming Language</span>
+                  </h1>
+                  <p>Welcome,<br> <span
+                        style="font-weight: bolder; color: #0e90ed; font-size: larger;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">R#</span>
+                     (/ˌɑːr ˈʃɑːrp/ ar SHARP) programming language is a kind of <a
+                        href="https://www.r-project.org/">R</a> liked vectorized language
+                     implements on .NET clr environment for the bioinformatics data analysis.</p>
+                  <a class="read_more" href="get-starts.html">Get Starts</a>
+
+                  <p>
+                  <pre>
+<code id="hello_r">
+#' print hello world
+const hello = function(word) {
+   print(`hello ${word}!`);
+}
+
+hello(["world", "R# language"]);
+# [1]     "hello world!"       "hello R# language!"
+</code>
+                     </pre>
+                  </p>
                </div>
             </div>
             <div class="col-md-7">
@@ -120,11 +141,16 @@
          <div class="row">
             <div class="col-md-6 offset-md-6">
                <div class="titlepage text_align_right">
-                  <h2>About us our bird</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit </p>
-                  <a class="read_more" href="about.html">Read More</a>
+                  <h2>About R#</h2>
+                  <p>The R# language its syntax is original derived from the R language, but with more modernized
+                     programming styles. The R# language its interpreter and .NET compiler is original writen in
+                     VisualBasic language, with native support for the .NET runtime.
+
+                     <br />
+                     The R# language is not designed for the general programming purpose, and it is totaly open source
+                     and freely available at anytime.
+                  </p>
+                  <a class="read_more" href="https://github.com/rsharp-lang/R-sharp">Source on Github</a>
                </div>
             </div>
          </div>
@@ -139,47 +165,21 @@
          <div class="container">
             <div class="row">
                <div class="col-md-10 offset-md-1 border-top1">
-                  <a class="logo_footer" href="/"><img src="assets/images/logo.png" alt="#" /></a>
+                  <a class="logo_footer" href="/"><img src="assets/images/logo.png" alt="#" style="width:72px;" /></a>
+                  logo from art work: <a
+                     href="https://www.clipartbest.com/clipart-di85MqodT">https://www.clipartbest.com/clipart-di85MqodT</a>
+                  <br />
                </div>
-               <div class="col-md-5">
-                  <div class="reader">
-                     <h3>Adderess</h3>
-                     <ul>
-                        <li>Healing Center, 176 W S <br>
-                           treetname,New York, NY 10014, US
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-lg-5 col-md-4">
-                  <div class="reader">
-                     <h3>Adderess</h3>
-                     <ul>
-                        <li>(+71) 8522369417<br>
-                           (+71) 8522369418
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-lg-2 col-md-3 ">
-                  <div class="reader">
-                     <h3>Email</h3>
-                     <ul>
-                        <li> <a href="Javascript:void(0)">demo@gmail.com<br>
-                           </a>
-                        </li>
-                        <li> <a href="Javascript:void(0)">demo@gmail.com<br>
-                           </a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-md-10 offset-md-1">
-                  <ul class="social_icon text_align_center">
-                     <li> <a href="Javascript:void(0)"><i class="fa fa-facebook-f"></i></a></li>
-                     <li> <a href="Javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-                     <li> <a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+
+               <div class="col-md-10 offset-md-1 text_align_center">
+                  <ul class="text_align_center">
+                     <li> <a href="https://github.com/xieguigang/sciBASIC"> <img src="assets/images/visualbasic.png"
+                              style="width: 320px;" /> </a></li>
                   </ul>
+
+                  <div>
+                     R# is power by <a href="https://github.com/xieguigang/sciBASIC">sciBASIC#</a>
+                  </div>
                </div>
             </div>
          </div>
@@ -187,8 +187,10 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-10 offset-md-1">
-                     <p>Copyright 2020 All Right Reserved By <a href="https://html.design/"> Free Html Template</a>
-                        Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
+                     <p>Copyright 2024 All Right Reserved By <a
+                           href="mailto://xie.guigang@gcmodeller.org">xieguigang</a>
+                        |
+                        中國 · 桂林</p>
                   </div>
                </div>
             </div>
@@ -201,6 +203,11 @@
    <script src="assets/js/bootstrap.bundle.min.js"></script>
    <script src="assets/js/jquery-3.0.0.min.js"></script>
    <script src="assets/js/custom.js"></script>
+
+   <script src="assets/js/R_syntax.js"></script>
+   <script src="assets/js/highlights.js"></script>
+
+   <script type="text/javascript"> r_highlights("hello_r"); </script>
 </body>
 
 </html>

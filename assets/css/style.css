@@ -896,8 +896,9 @@ ul.email li img {
 /** footer **/
 
 .footer {
-     background: #ebebea;
-     padding-top: 90px
+     background: #00275b;
+     padding-top: 90px;
+     color:white;
 }
 
 .logo_footer {
@@ -907,7 +908,7 @@ ul.email li img {
 }
 
 .border-top1 {
-     border-top: #0d90ed solid 1px;
+     border-top: #ffffff dashed 2px;
 }
 
 .reader h3 {
@@ -965,19 +966,26 @@ ul.social_icon li a:hover {
 
 .copyright p {
      margin-top: 54px;
-     color: #050404;
+     color: white;
      padding: 20px 0px;
-     border-top: dashed #818181 2px;
+     border-top: dashed #ffffff 2px;
 }
 
 .copyright a {
-     color: #050404;
+     color: white;
 }
 
 .copyright a:hover {
      color: #00aeef;
 }
 
+.footer a {
+     color: white;
+}
+
+.footer a:hover {
+     color: #00aeef;
+}
 
 /** end footer **/
 
