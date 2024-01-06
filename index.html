@@ -57,14 +57,12 @@
    <div class=" banner_main">
       <div class="container-fluid">
          <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
                <div class="bluid">
-                  <h1><span
-                        style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 160px;">R#</span>
+                  <h1><span class="rsharp_name" style="font-size: 160px;">R#</span>
                      <br><span class="black">Programming Language</span>
                   </h1>
-                  <p>Welcome,<br> <span
-                        style="font-weight: bolder; color: #0e90ed; font-size: larger;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">R#</span>
+                  <p>Welcome,<br> <span class="rsharp_name" style="font-size: larger;">R#</span>
                      (/ˌɑːr ˈʃɑːrp/ ar SHARP) programming language is a kind of <a
                         href="https://www.r-project.org/">R</a> liked vectorized language
                      implements on .NET clr environment for the bioinformatics data analysis.</p>
@@ -85,8 +83,8 @@ hello(["world", "R# language"]);
                   </p>
                </div>
             </div>
-            <div class="col-md-7">
-               <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="col-md-8">
+               <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-left: 100px;">
                   <ol class="carousel-indicators">
                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                      <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -105,8 +103,46 @@ hello(["world", "R# language"]);
                      <div class="carousel-item">
                         <div class="container">
                            <div class="carousel-caption relative">
-                              <div class="banner_img">
-                                 <figure><img src="assets/images/slider.png" alt="#" /></figure>
+                              <div class="banner_img" style="background-color: transparent;
+                                 filter: blur(4px);
+                                 -webkit-filter: blur(4px);
+                                 background-image: url(assets/images/HR2MSI_mouse_urinary_bladder_S096_RGB.png);
+                                 background-repeat: no-repeat;">
+                                 <figure>
+
+                                    <pre style="text-align: left; z-index: 999;background-color: transparent;">
+<code id="msi_demo_r">
+require(MSImaging);
+require(mzkit);
+require(ggplot);
+
+options(memory.load = "max");
+
+bitmap(file = "./HR2MSI_mouse_urinary_bladder_S096_RGB.png", size = [3300, 2000]) {
+   # load mzpack/imzML raw data file
+   # and config ggplot data source driver 
+   # as MSImaging data reader
+   ggplot(open.mzpack(system.file("data/HR2MSI mouse urinary bladder S096 - Figure1.cdf", package = "MSImaging")),           
+         padding = "padding: 200px 600px 200px 250px;"
+   ) 
+      # rendering of rgb channels ion m/z
+      + geom_red(mz = 743.5468, tolerance = "da:0.3")
+      + geom_green(mz = 798.5414, tolerance = "da:0.3")
+      + geom_blue(mz = 741.5303, tolerance = "da:0.3")
+      + theme(panel.background = "black", panel.grid = element_blank())
+      + geom_MSIfilters(
+         TrIQ_scale(0.999)
+      )
+      # add ggplot charting elements
+      + ggtitle("HR2MSI mouse urinary bladder S096 - Figure1")
+      + labs(x = "Dimension(X)", y = "Dimension(Y)")
+      + scale_x_continuous(labels = "F0")
+      + scale_y_continuous(labels = "F0")
+   ;
+}         
+        </code></pre>
+
+                                 </figure>
                               </div>
                            </div>
                         </div>
@@ -141,13 +177,16 @@ hello(["world", "R# language"]);
          <div class="row">
             <div class="col-md-6 offset-md-6">
                <div class="titlepage text_align_right">
-                  <h2>About R#</h2>
-                  <p>The R# language its syntax is original derived from the R language, but with more modernized
-                     programming styles. The R# language its interpreter and .NET compiler is original writen in
+                  <h2>About <span class="rsharp_name">R#</span></h2>
+                  <p>The <span class="rsharp_name">R#</span> language its syntax is original derived from the R
+                     language, but with more modernized
+                     programming styles. The <span class="rsharp_name">R#</span> language its interpreter and .NET
+                     compiler is original writen in
                      VisualBasic language, with native support for the .NET runtime.
 
                      <br />
-                     The R# language is not designed for the general programming purpose, and it is totaly open source
+                     The <span class="rsharp_name">R#</span> language is not designed for the general programming
+                     purpose, and it is totaly open source
                      and freely available at anytime.
                   </p>
                   <a class="read_more" href="https://github.com/rsharp-lang/R-sharp">Source on Github</a>
@@ -178,7 +217,8 @@ hello(["world", "R# language"]);
                   </ul>
 
                   <div>
-                     R# is power by <a href="https://github.com/xieguigang/sciBASIC">sciBASIC#</a>
+                     <span class="rsharp_name">R#</span> is power by <a
+                        href="https://github.com/xieguigang/sciBASIC">sciBASIC#</a>
                   </div>
                </div>
             </div>
@@ -207,7 +247,10 @@ hello(["world", "R# language"]);
    <script src="assets/js/R_syntax.js"></script>
    <script src="assets/js/highlights.js"></script>
 
-   <script type="text/javascript"> r_highlights("hello_r"); </script>
+   <script type="text/javascript">
+      r_highlights("hello_r");
+      r_highlights("msi_demo_r");
+   </script>
 </body>
 
 </html>
