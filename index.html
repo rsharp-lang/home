@@ -23,9 +23,6 @@
    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
    <link rel="stylesheet" href="assets/css/page.css">
-   <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <!-- body -->
 
@@ -87,8 +84,6 @@ hello(["world", "R# language"]);
                <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-left: 100px;">
                   <ol class="carousel-indicators">
                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                     <li data-target="#myCarousel" data-slide-to="1"></li>
-                     <li data-target="#myCarousel" data-slide-to="2"></li>
                   </ol>
                   <div class="carousel-inner">
                      <div class="carousel-item active">
@@ -100,17 +95,45 @@ hello(["world", "R# language"]);
                            </div>
                         </div>
                      </div>
-                     <div class="carousel-item">
-                        <div class="container">
-                           <div class="carousel-caption relative">
-                              <div class="banner_img" style="background-color: transparent;
-                                 filter: blur(4px);
-                                 -webkit-filter: blur(4px);
-                                 background-image: url(assets/images/HR2MSI_mouse_urinary_bladder_S096_RGB.png);
-                                 background-repeat: no-repeat;">
-                                 <figure>
+                  </div>
+                  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" style="display:none;">
+                     <i class="fa fa-angle-left" aria-hidden="true"></i>
+                     <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next" style="display:none;">
+                     <i class="fa fa-angle-right" aria-hidden="true"></i>
+                     <span class="sr-only">Next</span>
+                  </a>
+               </div>
+            </div>
+         </div>
 
-                                    <pre style="text-align: left; z-index: 999;background-color: transparent;">
+         <div class="row">
+            <div class="col">
+               <h1>Installation</h1>
+               <h2>Docker Image</h2>
+               <h2>Install a R# Package</h2>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col">
+
+               <h1>DEMO</h1>
+
+               <div class="banner_img" style="
+                           background-image: url(assets/images/HR2MSI_mouse_urinary_bladder_S096_RGB.png);
+                           background-repeat: no-repeat; height:100%;">
+
+               </div>
+
+
+
+            </div>
+            <div class="col">
+               <figure>
+
+                  <pre style="text-align: left;">
 <code id="msi_demo_r">
 require(MSImaging);
 require(mzkit);
@@ -123,51 +146,27 @@ bitmap(file = "./HR2MSI_mouse_urinary_bladder_S096_RGB.png", size = [3300, 2000]
    # and config ggplot data source driver 
    # as MSImaging data reader
    ggplot(open.mzpack(system.file("data/HR2MSI mouse urinary bladder S096 - Figure1.cdf", package = "MSImaging")),           
-         padding = "padding: 200px 600px 200px 250px;"
+      padding = "padding: 200px 600px 200px 250px;"
    ) 
-      # rendering of rgb channels ion m/z
-      + geom_red(mz = 743.5468, tolerance = "da:0.3")
-      + geom_green(mz = 798.5414, tolerance = "da:0.3")
-      + geom_blue(mz = 741.5303, tolerance = "da:0.3")
-      + theme(panel.background = "black", panel.grid = element_blank())
-      + geom_MSIfilters(
-         TrIQ_scale(0.999)
-      )
-      # add ggplot charting elements
-      + ggtitle("HR2MSI mouse urinary bladder S096 - Figure1")
-      + labs(x = "Dimension(X)", y = "Dimension(Y)")
-      + scale_x_continuous(labels = "F0")
-      + scale_y_continuous(labels = "F0")
+   # rendering of rgb channels ion m/z
+   + geom_red(mz = 743.5468, tolerance = "da:0.3")
+   + geom_green(mz = 798.5414, tolerance = "da:0.3")
+   + geom_blue(mz = 741.5303, tolerance = "da:0.3")
+   + theme(panel.background = "black", panel.grid = element_blank())
+   + geom_MSIfilters(TrIQ_scale(0.999))
+   # add ggplot charting elements
+   + ggtitle("HR2MSI mouse urinary bladder S096 - Figure1")
+   + labs(x = "Dimension(X)", y = "Dimension(Y)")
+   + scale_x_continuous(labels = "F0")
+   + scale_y_continuous(labels = "F0")
    ;
 }         
-        </code></pre>
+</code></pre>
 
-                                 </figure>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="carousel-item">
-                        <div class="container">
-                           <div class="carousel-caption relative">
-                              <div class="banner_img">
-                                 <figure><img src="assets/images/slider.png" alt="#" /></figure>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                     <i class="fa fa-angle-left" aria-hidden="true"></i>
-                     <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                     <i class="fa fa-angle-right" aria-hidden="true"></i>
-                     <span class="sr-only">Next</span>
-                  </a>
-               </div>
+               </figure>
             </div>
          </div>
+
       </div>
    </div>
    <!-- end slider section -->
