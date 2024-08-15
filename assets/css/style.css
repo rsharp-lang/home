@@ -898,7 +898,7 @@ ul.email li img {
 .footer {
      background: #00275b;
      padding-top: 90px;
-     color: white;
+     color: black;
 }
 
 .logo_footer {
@@ -959,33 +959,33 @@ ul.social_icon li a {
 
 ul.social_icon li a:hover {
      background: #00aeef;
-     color: #fff;
+     /* color: #fff; */
      transform: rotate(360deg);
      transition: ease-in all 0.7s;
 }
 
 .copyright p {
      margin-top: 54px;
-     color: white;
+     /* color: white; */
      padding: 20px 0px;
      border-top: dashed #ffffff 2px;
 }
 
-.copyright a {
+/* .copyright a {
      color: white;
-}
+} */
 
 .copyright a:hover {
      color: #00aeef;
 }
 
-.footer a {
+/* .footer a {
      color: white;
 }
 
 .footer a:hover {
      color: #00aeef;
-}
+} */
 
 /** end footer **/
 
