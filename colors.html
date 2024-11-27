@@ -19,8 +19,8 @@
             const points = [];
             for (let i = 0; i < 60; i++) {
                 // 为每个点生成一个围绕中心点的随机位置
-                const x = centerX + getRandomArbitrary(-50, 50);
-                const y = centerY + getRandomArbitrary(-50, 50);
+                const x = centerX + getRandomArbitrary(-100, 100);
+                const y = centerY + getRandomArbitrary(-100, 100);
                 points.push({ x, y, color });
             }
             return points;
@@ -38,7 +38,7 @@
     }
 
     // 示例用法
-    const colors = ["#E7695DFF", "#6B8993FF", "#F6F0D4FF"];
+    const colors = ["#006A40FF", "#F08892FF", "#75B41EFF", "#95828DFF", "#708C98FF", "#8AB8CFFF", "#007E7FFF", "#358359FF", "#8BA1BCFF", "#5A5895FF", "#F2990CFF", "#5A5895FF", "#E5BA3AFF", "#D86C4FFF"];
     const clusters = generateRandomClusters(colors);
 
     // 打印结果，以便查看
@@ -148,11 +148,38 @@
                 const circle = document.createElementNS(svgNS, "circle");
                 circle.setAttribute("cx", point.x);
                 circle.setAttribute("cy", point.y);
-                circle.setAttribute("r", 5); // 设置圆的半径
+                circle.setAttribute("r", 12); // 设置圆的半径
                 circle.setAttribute("fill", point.color); // 设置圆的颜色
                 svg.appendChild(circle); // 将圆添加到SVG中
             });
         });
+
+        // 绘制图例
+        const legend = document.createElementNS(svgNS, "g"); // 创建一个组元素来包含图例
+        legend.setAttribute("transform", "translate(1020, 20)"); // 将图例移动到视图的右上角
+        clusters.forEach((cluster, index) => {
+            const legendColor = colors[index]; // 获取当前聚类簇的颜色
+            const legendItem = document.createElementNS(svgNS, "g");
+            legendItem.setAttribute("transform", `translate(0, ${index * 20})`); // 每个图例项垂直间隔20单位
+
+            // 创建矩形表示颜色
+            const rect = document.createElementNS(svgNS, "rect");
+            rect.setAttribute("width", 10);
+            rect.setAttribute("height", 10);
+            rect.setAttribute("fill", legendColor);
+            legendItem.appendChild(rect);
+
+            // 创建文本表示标签
+            const text = document.createElementNS(svgNS, "text");
+            text.setAttribute("x", 15);
+            text.setAttribute("y", 10);
+            text.setAttribute("dominant-baseline", "middle");
+            text.textContent = `Cluster ${index + 1}`;
+            legendItem.appendChild(text);
+
+            legend.appendChild(legendItem);
+        });
+        svg.appendChild(legend); // 将图例添加到SVG中
 
         // 将SVG元素添加到页面中
         document.getElementById("display").innerHTML = "";
