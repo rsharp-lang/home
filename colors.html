@@ -1,0 +1,166 @@
+<html>
+
+
+<body>
+    <div id="display" style="width: 500px; height: 500px;">
+        <!-- SVG元素将被添加到这里 -->
+    </div>
+</body>
+
+<script>
+    function generateRandomClusters(colors) {
+        // 定义生成随机数的函数
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // 定义生成随机数据点的函数
+        function generateCluster(centerX, centerY, color) {
+            const points = [];
+            for (let i = 0; i < 60; i++) {
+                // 为每个点生成一个围绕中心点的随机位置
+                const x = centerX + getRandomArbitrary(-50, 50);
+                const y = centerY + getRandomArbitrary(-50, 50);
+                points.push({ x, y, color });
+            }
+            return points;
+        }
+
+        // 生成每个颜色对应的随机聚类簇数据
+        const clusters = colors.map(color => {
+            // 为每个聚类簇生成一个随机中心点
+            const centerX = getRandomArbitrary(0, 1000);
+            const centerY = getRandomArbitrary(0, 1000);
+            return generateCluster(centerX, centerY, color);
+        });
+
+        return clusters;
+    }
+
+    // 示例用法
+    const colors = ["#E7695DFF", "#6B8993FF", "#F6F0D4FF"];
+    const clusters = generateRandomClusters(colors);
+
+    // 打印结果，以便查看
+    console.log(clusters);
+
+    function drawClustersToSvg(clusters) {
+        // 创建SVG元素
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", "100%"); // 设置宽度为100%，可以根据容器缩放
+        svg.setAttribute("height", "100%"); // 设置高度为100%，可以根据容器缩放
+        svg.setAttribute("viewBox", "0 0 1000 1000"); // 设置viewBox属性
+
+        // 绘制x轴
+        const xAxis = document.createElementNS(svgNS, "line");
+        xAxis.setAttribute("x1", 0);
+        xAxis.setAttribute("y1", 1000);
+        xAxis.setAttribute("x2", 1000);
+        xAxis.setAttribute("y2", 1000);
+        xAxis.setAttribute("stroke", "black");
+        xAxis.setAttribute("stroke-width", "2");
+        svg.appendChild(xAxis);
+
+        // 绘制y轴
+        const yAxis = document.createElementNS(svgNS, "line");
+        yAxis.setAttribute("x1", 0);
+        yAxis.setAttribute("y1", 0);
+        yAxis.setAttribute("x2", 0);
+        yAxis.setAttribute("y2", 1000);
+        yAxis.setAttribute("stroke", "black");
+        yAxis.setAttribute("stroke-width", "2");
+        svg.appendChild(yAxis);
+
+        // 添加x轴刻度
+        for (let i = 0; i <= 10; i++) {
+            const xTick = document.createElementNS(svgNS, "line");
+            xTick.setAttribute("x1", i * 100);
+            xTick.setAttribute("y1", 1000);
+            xTick.setAttribute("x2", i * 100);
+            xTick.setAttribute("y2", 1000 - 5);
+            xTick.setAttribute("stroke", "black");
+            svg.appendChild(xTick);
+
+            // 添加刻度文本
+            const xText = document.createElementNS(svgNS, "text");
+            xText.setAttribute("x", i * 100);
+            xText.setAttribute("y", 1000 + 15);
+            xText.setAttribute("text-anchor", "middle");
+            xText.textContent = i * 100;
+            svg.appendChild(xText);
+        }
+
+        // 添加y轴刻度
+        for (let i = 0; i <= 10; i++) {
+            const yTick = document.createElementNS(svgNS, "line");
+            yTick.setAttribute("x1", 0);
+            yTick.setAttribute("y1", i * 100);
+            yTick.setAttribute("x2", 5);
+            yTick.setAttribute("y2", i * 100);
+            yTick.setAttribute("stroke", "black");
+            svg.appendChild(yTick);
+
+            // 添加刻度文本
+            const yText = document.createElementNS(svgNS, "text");
+            yText.setAttribute("x", -15);
+            yText.setAttribute("y", i * 100 + 5);
+            yText.setAttribute("text-anchor", "end");
+            yText.textContent = i * 100;
+            svg.appendChild(yText);
+        }
+
+        // 绘制网格线
+        function drawGridLines(color, width, dashArray) {
+            for (let i = 1; i < 10; i++) {
+                // 绘制水平网格线
+                const horizontalLine = document.createElementNS(svgNS, "line");
+                horizontalLine.setAttribute("x1", 0);
+                horizontalLine.setAttribute("y1", i * 100);
+                horizontalLine.setAttribute("x2", 1000);
+                horizontalLine.setAttribute("y2", i * 100);
+                horizontalLine.setAttribute("stroke", color);
+                horizontalLine.setAttribute("stroke-width", width);
+                horizontalLine.setAttribute("stroke-dasharray", dashArray);
+                svg.appendChild(horizontalLine);
+
+                // 绘制垂直网格线
+                const verticalLine = document.createElementNS(svgNS, "line");
+                verticalLine.setAttribute("x1", i * 100);
+                verticalLine.setAttribute("y1", 0);
+                verticalLine.setAttribute("x2", i * 100);
+                verticalLine.setAttribute("y2", 1000);
+                verticalLine.setAttribute("stroke", color);
+                verticalLine.setAttribute("stroke-width", width);
+                verticalLine.setAttribute("stroke-dasharray", dashArray);
+                svg.appendChild(verticalLine);
+            }
+        }
+
+        // 调用函数绘制网格线
+        drawGridLines("lightgray", "1", "5,5");
+
+        // 遍历每个聚类簇
+        clusters.forEach(cluster => {
+            // 遍历每个聚类簇中的点
+            cluster.forEach(point => {
+                // 创建一个圆形元素
+                const circle = document.createElementNS(svgNS, "circle");
+                circle.setAttribute("cx", point.x);
+                circle.setAttribute("cy", point.y);
+                circle.setAttribute("r", 5); // 设置圆的半径
+                circle.setAttribute("fill", point.color); // 设置圆的颜色
+                svg.appendChild(circle); // 将圆添加到SVG中
+            });
+        });
+
+        // 将SVG元素添加到页面中
+        document.getElementById("display").innerHTML = "";
+        document.getElementById("display").appendChild(svg);
+    }
+
+    drawClustersToSvg(clusters); // 绘制SVG
+
+</script>
+
+</html>
